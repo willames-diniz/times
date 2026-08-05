@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚽ Pelada - Times Equilibrados</title>
+
+  <!-- PWA: informa o navegador sobre o "manifesto" do app (nome, ícone, cores) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#B8E0C8">
+
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>⚽ PELADA</h1>
+    <p>Monte times equilibrados na hora</p>
+  </header>
+
+  <main>
+
+    <section id="cadastro">
+      <h2>Novo jogador</h2>
+      <form id="form-jogador">
+        <input type="text" id="nome-jogador" placeholder="Nome do jogador" required>
+
+        <!-- Avaliação por estrelas clicáveis (só CSS, sem JS pra "acender" a estrela) -->
+        <div class="star-rating">
+          <input type="radio" id="star5" name="estrelas" value="5">
+          <label for="star5">★</label>
+          <input type="radio" id="star4" name="estrelas" value="4">
+          <label for="star4">★</label>
+          <input type="radio" id="star3" name="estrelas" value="3">
+          <label for="star3">★</label>
+          <input type="radio" id="star2" name="estrelas" value="2">
+          <label for="star2">★</label>
+          <input type="radio" id="star1" name="estrelas" value="1">
+          <label for="star1">★</label>
+        </div>
+
+        <button type="submit">+ Adicionar jogador</button>
+      </form>
+    </section>
+
+    <section id="lista-jogadores">
+      <h2>Lista prévia <span id="contador-jogadores">(0)</span></h2>
+      <ol id="jogadores">
+        <!-- o JS insere cada jogador cadastrado aqui, numerado -->
+      </ol>
+    </section>
+
+    <section id="sorteio">
+      <h2>🎲 Sortear times</h2>
+      <form id="form-sorteio">
+        <label for="tamanho-time">Jogadores por time:</label>
+        <input type="number" id="tamanho-time" min="1" placeholder="Ex: 5" required>
+        <button type="submit">Sortear times equilibrados</button>
+      </form>
+
+      <div id="resultado-sorteio">
+        <!-- os times sorteados vão aparecer aqui, via JS -->
+      </div>
+    </section>
+
+    <section id="artilharia">
+      <details>
+        <summary>🏆 Artilharia (opcional)</summary>
+
+        <form id="form-gol">
+          <select id="select-jogador-gol" required></select>
+          <input type="number" id="input-gols" min="1" placeholder="Quantos gols?" required>
+          <button type="submit">Adicionar gols</button>
+        </form>
+
+        <ol id="ranking-gols">
+          <!-- o ranking de artilheiros vai aparecer aqui, via JS -->
+        </ol>
+      </details>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
