@@ -1,0 +1,304 @@
+/* ===== VARIÁVEIS DE DESIGN ===== */
+:root {
+  --bg: #FAFAF7;
+  --verde-menta: #B8E0C8;
+  --amarelo: #FFD97D;
+  --pessego: #FFC4A8;
+  --azul: #A9CCE3;
+  --texto: #3A4A40;
+  --texto-suave: #7A8A80;
+  --branco: #FFFFFF;
+
+  --fonte-titulo: 'Quicksand', sans-serif;
+  --fonte-corpo: 'Nunito', sans-serif;
+  --fonte-numero: 'DM Mono', monospace;
+
+  --raio: 16px;
+  --sombra: 0 2px 12px rgba(58, 74, 64, 0.06);
+}
+
+/* ===== RESET BÁSICO ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--texto);
+  font-family: var(--fonte-corpo);
+  line-height: 1.5;
+  padding: 24px 16px 60px;
+}
+
+/* ===== CABEÇALHO ===== */
+header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+header h1 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+header p {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* ===== LAYOUT GERAL ===== */
+main {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+section {
+  background-color: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 20px;
+}
+
+section h2 {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+#contador-jogadores {
+  font-family: var(--fonte-numero);
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ===== FORMULÁRIO ===== */
+#form-jogador {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#form-jogador input {
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: none;
+  background-color: var(--bg);
+  border-radius: 12px;
+  color: var(--texto);
+}
+
+#form-jogador input:focus {
+  outline: 2px solid var(--verde-menta);
+}
+
+/* ===== AVALIAÇÃO POR ESTRELAS (input clicável) ===== */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--verde-menta);
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: var(--amarelo);
+  transform: scale(1.15);
+}
+
+.star-rating input:checked ~ label {
+  color: var(--amarelo);
+}
+
+/* ===== BOTÕES ===== */
+button {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--texto);
+  background-color: var(--amarelo);
+  border: none;
+  border-radius: 12px;
+  padding: 13px 18px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  box-shadow: var(--sombra);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* ===== LISTA DE JOGADORES ===== */
+#jogadores {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jogador-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--bg);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.jogador-numero {
+  font-family: var(--fonte-numero);
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  width: 18px;
+}
+
+.jogador-nome {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.jogador-estrelas {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: var(--amarelo);
+}
+
+/* ===== TIMES SORTEADOS ===== */
+#resultado-sorteio {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.time-sorteado {
+  background-color: var(--bg);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.time-sorteado h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.time-forca {
+  font-family: var(--fonte-numero);
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.time-sorteado ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+}
+
+/* ===== ARTILHARIA (recolhível) ===== */
+#artilharia summary {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+/* remove a setinha padrão do navegador na summary, no Chrome/Safari */
+#artilharia summary::-webkit-details-marker {
+  display: none;
+}
+
+#form-gol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+#form-gol select,
+#form-gol input {
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: none;
+  background-color: var(--bg);
+  border-radius: 12px;
+  color: var(--texto);
+}
+
+#ranking-gols {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background-color: var(--bg);
+}
+
+.ranking-pos {
+  font-family: var(--fonte-numero);
+  font-weight: 500;
+  color: var(--texto-suave);
+  width: 22px;
+}
+
+.ranking-nome {
+  flex: 1;
+  font-weight: 600;
+}
+
+.ranking-gols {
+  font-family: var(--fonte-numero);
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.ranking-item:first-child {
+  background-color: var(--amarelo);
+}
+
+.ranking-item:first-child .ranking-pos,
+.ranking-item:first-child .ranking-gols {
+  color: var(--texto);
+}
