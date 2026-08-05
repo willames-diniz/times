@@ -1,6 +1,6 @@
 // Nome do "cofre" onde vamos guardar os arquivos offline.
 // Mudar esse número força o navegador a atualizar o cache quando você editar o app.
-const CACHE_NOME = 'pelada-v1';
+const CACHE_NOME = 'racha-v2';
 
 // Lista de arquivos essenciais pro app funcionar sem internet.
 const ARQUIVOS_ESSENCIAIS = [
